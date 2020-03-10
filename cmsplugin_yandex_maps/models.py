@@ -63,6 +63,7 @@ class YandexMaps(CMSPlugin):
 
     SIZING = (('aspect', _('Keep aspect')),
               ('static', _('Static')),
+              ('static_height', _('Min height and full width')),
               ('auto', pgettext_lazy('Like automatisation', 'Auto')))
     sizing = models.CharField(_('Sizing'), max_length=6, choices=SIZING, default='aspect')
     width = models.IntegerField(_('Width'), default=320)
@@ -108,12 +109,12 @@ class YandexMaps(CMSPlugin):
 
 
     def copy_relations(self, oldinstance):
-        self.behaviors = oldinstance.behaviors.all()
-        self.controls = oldinstance.controls.all()
-        self.placemarks = oldinstance.placemarks.all()
-        self.collections = oldinstance.collections.all()
-        self.clasters = oldinstance.clasters.all()
-        self.routes = oldinstance.routes.all()
+        self.behaviors.set(oldinstance.behaviors.all())
+        self.controls.set(oldinstance.controls.all())
+        self.placemarks.set(oldinstance.placemarks.all())
+        self.collections.set(oldinstance.collections.all())
+        self.clasters.set(oldinstance.clasters.all())
+        self.routes.set(oldinstance.routes.all())
 
 
     def __str__(self):

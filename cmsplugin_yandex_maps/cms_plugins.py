@@ -16,7 +16,7 @@ class YandexMapsPlugin(CMSPluginBase):
     form = YandexMapsForm
     model = YandexMaps
     name = _("Yandex Maps Plugin")
-    render_template = "cmsplugin_yandex_maps/yandex_maps.djhtml"
+    render_template = "cmsplugin_yandex_maps/yandex_maps.html"
     fieldsets = [
         (None, {'fields': ['title', 'map_type']}),
         (_('Sizing'), {'fields': ['sizing', 

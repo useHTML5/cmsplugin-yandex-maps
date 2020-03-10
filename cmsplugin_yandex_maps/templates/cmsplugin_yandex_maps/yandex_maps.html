@@ -50,6 +50,9 @@ function ya_map_container_size_{{ instance.id }}(){
     {% elif instance.sizing == "static" %}
         $('#map-{{ instance.id }}').parent().width({{ instance.width }});
         $('#map-{{ instance.id }}').parent().height({{ instance.height }});
+    {% elif instance.sizing == "static_height" %}
+        $('#map-{{ instance.id }}').parent().width('100%');
+        $('#map-{{ instance.id }}').parent().height({{ instance.height }});
     {% endif %}
 }
 

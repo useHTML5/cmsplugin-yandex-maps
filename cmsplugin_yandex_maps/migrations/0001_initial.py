@@ -59,7 +59,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='YandexMaps',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(primary_key=True, serialize=False, auto_created=True, related_name='cmsplugin_yandex_maps_yandexmaps', parent_link=True, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(primary_key=True, serialize=False, auto_created=True, related_name='cmsplugin_yandex_maps_yandexmaps', parent_link=True, to='cms.CMSPlugin', on_delete=models.CASCADE)),
                 ('title', models.CharField(verbose_name='Map title', max_length=140, blank=True, null=True)),
                 ('map_type', models.CharField(verbose_name='Initial type', max_length=10, default='map', choices=[('map', 'Scheme'), ('satellite', 'Satellite'), ('hybrid', 'Hybryd')])),
                 ('route', models.BooleanField(verbose_name='Create route', default=False, help_text='Create route between points (unstable)')),
@@ -89,6 +89,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='placemark',
             name='map',
-            field=models.ForeignKey(to='cmsplugin_yandex_maps.YandexMaps'),
+            field=models.ForeignKey(to='cmsplugin_yandex_maps.YandexMaps', on_delete=models.CASCADE),
         ),
     ]
