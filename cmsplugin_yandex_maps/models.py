@@ -65,9 +65,9 @@ class YandexMaps(CMSPlugin):
               ('static', _('Static')),
               ('static_height', _('Min height and full width')),
               ('auto', pgettext_lazy('Like automatisation', 'Auto')))
-    sizing = models.CharField(_('Sizing'), max_length=6, choices=SIZING, default='aspect')
+    sizing = models.CharField(_('Sizing'), max_length=100, choices=SIZING, default='static_height')
     width = models.IntegerField(_('Width'), default=320)
-    height = models.IntegerField(_('Height'), default=180)
+    height = models.IntegerField(_('Height'), default=400)
     UPDATE_METHOD = (('observer', 'MutationObserver'),
                      ('jq_event', _('jQuery event')))
     #TODO see to native "options.autoFitToViewport" https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Map-docpage/

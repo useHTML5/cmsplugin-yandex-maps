@@ -30,8 +30,16 @@ function sizing(){
 	switch ($('#id_sizing').val()){
 		case "aspect":
 		case "static":
-			$('div.form-row.field-width.field-height').show();
-			$('div.form-row.field-width.field-height label').addClass('required');
+			$('div.form-row.field-height.field-height').show();
+			$('div.form-row.field-height.field-height label').addClass('required');
+			$('div.form-row.field-width .field-width').show();
+			$('div.form-row.field-width .field-width label').addClass('required');
+			break;
+		case "static_height":
+			$('div.form-row.field-height .field-height').show();
+			$('div.form-row.field-height .field-height label').addClass('required');
+			$('div.form-row.field-width .field-width').hide();
+			$('div.form-row.field-width .field-width label').removeClass('required');
 			break;
 		case "auto":
 			$('div.form-row.field-width.field-height').hide();
